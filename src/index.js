@@ -2,7 +2,7 @@
 import dotenv from "dotenv"
 import connectDB from "./db/index.js";
 
-// howe we connect the dotenv pakg dependencies/ we confing after import them
+// how we connect the dotenv pakg dependencies // we confing after import them
 
 dotenv.config({
   path : './env'
