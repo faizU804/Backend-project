@@ -1,6 +1,7 @@
 /**  second approch is know we use  */
 import dotenv from "dotenv"
 import connectDB from "./db/index.js";
+import { app } from "./app.js";
 
 // how we connect the dotenv pakg dependencies // we confing after import them
 
@@ -8,8 +9,21 @@ dotenv.config({
   path : './env'
 })
 
+// here we change code as an assignmt for hitesh sir , try catch block
 
-connectDB();
+connectDB()
+.then(() => {
+  app.listen(process.env.PORT || 8000 , () => {
+   try {
+     console.log(`server is running on port ${process.env.PORT}`)
+   } catch (error) {
+    console.log("error is in server connection : " , error)
+   }
+  })
+})
+.catch((err)=>{
+  console.log("mongodb connection error " , err)
+})
 
 
 
