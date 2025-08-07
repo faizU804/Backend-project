@@ -29,4 +29,25 @@ app.use(express.static("public"))
 
 app.use(cookieParser())
 
+
+
+
+// after above task we define the router here and import here for over work 
+
+import userRouter from "./routes/user.routes.js"
+
+//here we do router decleration 
+
+// app.use("/users" , userRouter) // this is simple when api is not use
+// https://localhost:8000/users/register etc
+
+// if we use api then we tell them exactly with his version
+
+app.use("/api/v1/users", userRouter)
+// https://localhost:8000/api/v1/users/register etc url look like this and this is the way to make any url 
+
+
+
+
+
 export { app }
