@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 
 
+
 const userSchema = new Schema(
     {
         username  : {
@@ -57,7 +58,7 @@ userSchema.pre("save" , async function (next) {
 
     if(!this.isModified("password")) return next()   // you also use the if else syntx here
 
-    this.password = bcrypt.hash(this.password , 10)   //given context and 2nd time use 10 rounds
+    this.password = await bcrypt.hash(this.password , 10)   //given context and 2nd time use 10 rounds
     next()
 })
 
@@ -97,5 +98,6 @@ userSchema.methods.generateRefreshToken = function () {
         }
     )
 }
+
 
 export const User = mongoose.model("User", userSchema)

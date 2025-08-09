@@ -6,7 +6,7 @@ import { app } from "./app.js";
 // how we connect the dotenv pakg dependencies // we confing after import them
 
 dotenv.config({
-  path : './env'
+  path : './.env'
 })
 
 // here we change code as an assignmt for hitesh sir , try catch block

@@ -48,6 +48,4 @@ app.use("/api/v1/users", userRouter)
 
 
 
-
-
 export { app }
